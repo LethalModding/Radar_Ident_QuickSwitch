@@ -1,0 +1,2 @@
+[gates.restore]
+run = "dotnet restore \"Radar Ident QuickSwitch.sln\""
