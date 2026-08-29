@@ -48,7 +48,7 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## Attribution
 
-The original mod was based on Harmony and created by **dslogget**. We've completely rewritten it to be more efficient and to support more features (as well as utilize Monomod for hooking instead of Harmony). The original mod can be found [here](https://thunderstore.io/c/lethal-company/p/dslogget/PlayerMapNumbers/). The original mod was licensed under the MIT License.
+**dslogget** [PlayerMapNumbers](https://thunderstore.io/c/lethal-company/p/dslogget/PlayerMapNumbers/) is the MIT-licensed upstream reference. This repository implements the feature set with MonoMod hooks for efficiency and extensibility.
 
 ## License
 
