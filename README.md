@@ -1,39 +1,42 @@
-# Radar Ident QuickSwitch
+<h1 align="center">Radar Ident QuickSwitch</h1>
 
-## Overview
+<div align="center">
 
-Radar Ident QuickSwitch is a mod for Lethal Company that allows you to quickly switch between different radar targets using their simple identifier (a single-digit number by default.) This mod aims to enhance the quality-of-life and user experience of the terminal operator by providing a more efficient way to manage radar targets.
+[![Thunderstore](https://img.shields.io/badge/Thunderstore-Radar%20Ident%20QuickSwitch-blue)](https://thunderstore.io/c/lethal-company/p/LethalModding/Radar_Ident_QuickSwitch/)
 
-## Compatibility
+</div>
 
-- Compatible with version 40 or 45 of the game.
-- Tested to work with MoreCompany without issues.
+---
+
+Radar Ident QuickSwitch is a mod for Lethal Company that lets terminal operators switch radar targets quickly using a single-digit identifier by default. It improves quality of life for the terminal operator by providing a faster way to manage radar targets.
+
+The mod is compatible with game version 40 or 45 and works with MoreCompany in testing.
+
+## Quick start
+
+Install via [r2modman](https://github.com/ebkr/r2modman) or the Thunderstore Mod Manager. Manual install steps and dependencies are in [docs/install.md](docs/install.md) (HUMANS-tier operator runbook).
+
+```text
+# In r2modman or Thunderstore Mod Manager: search "Radar Ident QuickSwitch" and install
+```
 
 ## Features
 
-- Quick and easy switching between radar targets
+- Quick switching between radar targets using simple identifiers
 - Customizable identifier length (coming soon)
 
-## Installation
+## Documentation
 
-### Using r2modman or thunderstore Client
-
-1. Install the Radar Ident QuickSwitch mod.
-
-### Using the Manual Download Method
-
-1. Download the Radar Ident QuickSwitch mod.
-2. Extract the zip into your BepInEx directory.
+| Document | Description |
+| --- | --- |
+| [docs/install.md](docs/install.md) | Install, dependencies, and manual setup |
+| [CHANGELOG.md](CHANGELOG.md) | Release notes |
+| [ROADMAP.md](ROADMAP.md) | Planned features and terminal commands |
+| [LICENSE.md](LICENSE.md) | MIT license text |
 
 ## Usage
 
-Once installed, you will see (by default) digits appear over the icons of your radar targets. These digits are the identifiers for each target. To switch to a target, simply type the identifier of the target you wish to switch to. For example, if you want to switch to the target with the identifier `1`, you would type `1` and press enter. The target with the identifier `1` will now be selected as if you had used the `switch` command with their full name.
-
-## Dependencies
-
-Please make sure you have the following dependencies installed (if using the manual download method):
-
-- [BepInExPack (version 5.4.2100 or higher)](https://thunderstore.io/c/lethal-company/p/BepInEx/BepInExPack/)
+Once installed, digits appear over radar target icons by default. Type a target identifier and press Enter to select that target—for example, type `1` to select the target labeled `1`, as if you had used the `switch` command with the target full name.
 
 ## Support
 
@@ -49,4 +52,4 @@ The original mod was based on Harmony and created by **dslogget**. We've complet
 
 ## License
 
-This mod is released under the MIT License. See LICENSE.md file for details.
+This mod is released under the MIT License. See [LICENSE.md](LICENSE.md) for details.
