@@ -1,8 +1,0 @@
-{
-  "skip": [
-    "humans-missing",
-    "agents-missing",
-    "readme-no-tier-links"
-  ],
-  "_comment": "Thunderstore mod dossier — HUMANS/AGENTS tiers do not apply."
-}

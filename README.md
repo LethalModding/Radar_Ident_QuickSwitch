@@ -14,7 +14,7 @@ The mod is compatible with game version 40 or 45 and works with MoreCompany in t
 
 ## Quick start
 
-Install via [r2modman](https://github.com/ebkr/r2modman) or the Thunderstore Mod Manager. Manual install steps and dependencies are in [docs/install.md](docs/install.md) (HUMANS-tier operator runbook).
+Install via [r2modman](https://github.com/ebkr/r2modman) or the Thunderstore Mod Manager. Prerequisites, config, usage, and verify steps are in [HUMANS.md](HUMANS.md).
 
 ```text
 # In r2modman or Thunderstore Mod Manager: search "Radar Ident QuickSwitch" and install
@@ -29,14 +29,12 @@ Install via [r2modman](https://github.com/ebkr/r2modman) or the Thunderstore Mod
 
 | Document | Description |
 | --- | --- |
-| [docs/install.md](docs/install.md) | Install, dependencies, and manual setup |
+| [HUMANS.md](HUMANS.md) | Install, config, usage, verify, and uninstall |
+| [AGENTS.md](AGENTS.md) | Plugin layout, stack, and invariants |
+| [docs/install.md](docs/install.md) | Detailed install and dependencies |
 | [CHANGELOG.md](CHANGELOG.md) | Release notes |
 | [ROADMAP.md](ROADMAP.md) | Planned features and terminal commands |
 | [LICENSE.md](LICENSE.md) | MIT license text |
-
-## Usage
-
-Once installed, digits appear over radar target icons by default. Type a target identifier and press Enter to select that target—for example, type `1` to select the target labeled `1`, as if you had used the `switch` command with the target full name.
 
 ## Support
 
