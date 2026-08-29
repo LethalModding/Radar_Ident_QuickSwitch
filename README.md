@@ -8,46 +8,34 @@
 
 ---
 
-Radar Ident QuickSwitch is a mod for Lethal Company that lets terminal operators switch radar targets quickly using a single-digit identifier by default. It improves quality of life for the terminal operator by providing a faster way to manage radar targets.
+Radar Ident QuickSwitch lets terminal operators switch radar targets with a single-digit identifier by default — faster QoL for the ship terminal.
 
-The mod is compatible with game version 40 or 45 and works with MoreCompany in testing.
+Compatible with game v40 or v45; tested with MoreCompany.
 
 ## Quick start
 
-Install via [r2modman](https://github.com/ebkr/r2modman) or the Thunderstore Mod Manager. Prerequisites, config, usage, and verify steps are in [HUMANS.md](HUMANS.md).
-
 ```text
-# In r2modman or Thunderstore Mod Manager: search "Radar Ident QuickSwitch" and install
+# r2modman / Thunderstore Mod Manager: search "Radar Ident QuickSwitch"
 ```
+
+Install, config, and verify: [HUMANS.md](HUMANS.md).
 
 ## Features
 
-- Quick switching between radar targets using simple identifiers
-- Customizable identifier length (coming soon)
+- Quick radar target switching via numeric IDs
+- Custom identifier length (planned)
 
 ## Documentation
 
 | Document | Description |
 | --- | --- |
-| [HUMANS.md](HUMANS.md) | Install, config, usage, verify, and uninstall |
-| [AGENTS.md](AGENTS.md) | Plugin layout, stack, and invariants |
-| [docs/install.md](docs/install.md) | Detailed install and dependencies |
+| [HUMANS.md](HUMANS.md) | Install, config, usage, verify, uninstall |
+| [AGENTS.md](AGENTS.md) | Plugin layout, stack, invariants |
+| [docs/install.md](docs/install.md) | Install paths and dependencies |
 | [CHANGELOG.md](CHANGELOG.md) | Release notes |
-| [ROADMAP.md](ROADMAP.md) | Planned features and terminal commands |
-| [LICENSE.md](LICENSE.md) | MIT license text |
-
-## Support
-
-If you encounter any issues or have suggestions, please visit [our GitHub issues page](https://github.com/LethalModding/Radar_Ident_QuickSwitch/issues) to report them. If you would like **even faster** support, you can join [our Discord server](https://dsc.gg/lcmodding) and ask for help in the #help-and-support channel. We will do our best to help you as soon as possible.
-
-## Contributing
-
-If you would like to contribute to this project, please fork the repository and submit a pull request. We will review your changes and merge them if they are satisfactory. If you have any questions, feel free to ask in [our Discord server](https://dsc.gg/lcmodding).
-
-## Attribution
-
-**dslogget** [PlayerMapNumbers](https://thunderstore.io/c/lethal-company/p/dslogget/PlayerMapNumbers/) is the MIT-licensed upstream reference. This repository implements the feature set with MonoMod hooks for efficiency and extensibility.
+| [ROADMAP.md](ROADMAP.md) | Planned features |
+| [LICENSE.md](LICENSE.md) | MIT license |
 
 ## License
 
-This mod is released under the MIT License. See [LICENSE.md](LICENSE.md) for details.
+MIT — see [LICENSE.md](LICENSE.md). Upstream reference: MIT [PlayerMapNumbers](https://thunderstore.io/c/lethal-company/p/dslogget/PlayerMapNumbers/) by dslogget.
