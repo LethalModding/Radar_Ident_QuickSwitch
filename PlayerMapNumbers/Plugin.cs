@@ -83,6 +83,8 @@ public class Plugin : BaseUnityPlugin
 
         var newIdents = IdentTable.Assign(live);
 
+        // Detach every moving label first, so a label moving onto a number another label still holds is not overwritten.
+        var moved = new List<(string Ident, GameObject Label)>();
         foreach (var target in live)
         {
             if (target == null) continue;
@@ -95,8 +97,10 @@ public class Plugin : BaseUnityPlugin
             playerMapLabels.Remove(oldIdent);
             var tmp = existingLabel.GetComponent<TextMeshPro>();
             if (tmp != null) tmp.text = newIdent;
-            playerMapLabels[newIdent] = existingLabel;
+            moved.Add((newIdent, existingLabel));
         }
+        foreach (var (ident, label) in moved)
+            playerMapLabels[ident] = label;
 
         playerAssignments.Clear();
         foreach (var kv in newIdents)
