@@ -15,21 +15,7 @@ public class Plugin : BaseUnityPlugin
     #region Configuration
     public static BepInEx.Configuration.ConfigFile config;
 
-    /*public enum IdentType
-    {
-        Numeric = 0,
-        LatinAlphabet,
-        GreekAlphabet,
-        PhoneticNATO,
-        PhoneticIPA,
-    }*/
-
     public static BepInEx.Configuration.ConfigEntry<bool> configGeneralEnabled;
-    /*public static BepInEx.Configuration.ConfigEntry<bool> configIdentBackfill;
-    public static BepInEx.Configuration.ConfigEntry<int> configIdentLength;
-    public static BepInEx.Configuration.ConfigEntry<bool> configIdentSequential;
-    public static BepInEx.Configuration.ConfigEntry<string> configIdentStart;
-    public static BepInEx.Configuration.ConfigEntry<string> configIdentType;*/
 
     private static void LoadConfig()
     {
@@ -44,78 +30,6 @@ public class Plugin : BaseUnityPlugin
                 new BepInEx.Configuration.AcceptableValueList<bool>(true, false)
             )
         );
-
-        /*configIdentBackfill = config.Bind<bool>(
-            new BepInEx.Configuration.ConfigDefinition(
-                "Identifiers",
-                "Backfill"
-            ),
-            true,
-            new BepInEx.Configuration.ConfigDescription(
-                "Whether or not to backfill the identifiers of players that join mid-round.\n\nIf false, idents are not re-used.",
-                new BepInEx.Configuration.AcceptableValueList<bool>(true, false)
-            )
-        );
-
-        configIdentLength = config.Bind<int>(
-            new BepInEx.Configuration.ConfigDefinition(
-                "Identifiers",
-                "Length"
-            ),
-            3,
-            new BepInEx.Configuration.ConfigDescription(
-                "The length of the identifiers to use.\n\nIf sequential is enabled, this is the maximum length of the identifier.\n\nIf sequential is disabled, this is the exact length of the identifier.",
-                new BepInEx.Configuration.AcceptableValueRange<int>(1, 10)
-            )
-        );
-
-        configIdentSequential = config.Bind<bool>(
-            new BepInEx.Configuration.ConfigDefinition(
-                "Identifiers",
-                "Sequential"
-            ),
-            true,
-            new BepInEx.Configuration.ConfigDescription(
-                "Whether or not to use sequential identifiers.\n\nIf true, identifiers will be assigned in order of joining.\n\nIf false, identifiers will be assigned randomly.",
-                new BepInEx.Configuration.AcceptableValueList<bool>(true, false)
-            )
-        );
-
-        configIdentStart = config.Bind<string>(
-            new BepInEx.Configuration.ConfigDefinition(
-                "Identifiers",
-                "Start"
-            ),
-            "0",
-            new BepInEx.Configuration.ConfigDescription(
-                "The first identifier to use.\n\nIf sequential is enabled, this is the first identifier to use.\n\nIf sequential is disabled, this is the only identifier to use.",
-                new BepInEx.Configuration.AcceptableValueList<string>(
-                    "0 (Numeric)", "1 (Numeric)",
-                    "A (Latin)",
-                    "α (Greek)",
-                    "Alpha (NATO)",
-                    "Alfa (IPA)"
-                )
-            )
-        );
-
-        configIdentType = config.Bind<string>(
-            new BepInEx.Configuration.ConfigDefinition(
-                "Identifiers",
-                "Type"
-            ),
-            "Numeric",
-            new BepInEx.Configuration.ConfigDescription(
-                "The type of identifier to use.\n\nIf sequential is enabled, this is the type of identifier to use.\n\nIf sequential is disabled, this is ignored.",
-                new BepInEx.Configuration.AcceptableValueList<string>(
-                    "Numeric",
-                    "Latin Alphabet",
-                    "Greek Alphabet",
-                    "Phonetic (NATO)",
-                    "Phonetic (IPA)"
-                )
-            )
-        );*/
     }
     #endregion
 
