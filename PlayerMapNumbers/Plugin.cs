@@ -307,6 +307,13 @@ public class Plugin : BaseUnityPlugin
         if (self.NetworkManager == null || !self.NetworkManager.IsListening)
             return;
 
+        playerAssignments.Clear();
+        foreach (var kv in playerMapLabels)
+        {
+            if (kv.Value != null)
+                Destroy(kv.Value);
+        }
+        playerMapLabels.Clear();
         TrackAllRadarTargets();
     }
 
