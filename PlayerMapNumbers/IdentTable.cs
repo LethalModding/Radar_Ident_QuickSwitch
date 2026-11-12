@@ -14,4 +14,7 @@ public static class IdentTable
         }
         return idents;
     }
+
+    public static bool IsValidIndex(int index, int count) =>
+        index >= 0 && index < count;
 }

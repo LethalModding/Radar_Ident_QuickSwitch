@@ -444,7 +444,7 @@ public class Plugin : BaseUnityPlugin
         if (strArray.Length == 1 && int.TryParse(strArray[0], out int outputNum))
         {
             int playerIndex = outputNum;
-            if (playerIndex < StartOfRound.Instance.mapScreen.radarTargets.Count)
+            if (IdentTable.IsValidIndex(playerIndex, StartOfRound.Instance.mapScreen.radarTargets.Count))
             {
                 var controller = StartOfRound.Instance.mapScreen.radarTargets[playerIndex].transform.gameObject.GetComponent<PlayerControllerB>();
                 if (controller != null && !controller.isPlayerControlled && !controller.isPlayerDead && controller.redirectToEnemy == null)

@@ -22,4 +22,14 @@ public class IdentTableTests
         Assert.Equal("0", idents["q0"]);
         Assert.Single(idents);
     }
+
+    [Theory]
+    [InlineData(-1, 4, false)]
+    [InlineData(0, 4, true)]
+    [InlineData(3, 4, true)]
+    [InlineData(4, 4, false)]
+    public void IsValidIndex_MatchesInclusiveStartExclusiveCount(int index, int count, bool expected)
+    {
+        Assert.Equal(expected, IdentTable.IsValidIndex(index, count));
+    }
 }
