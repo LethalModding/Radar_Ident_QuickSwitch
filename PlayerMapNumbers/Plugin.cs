@@ -219,12 +219,13 @@ public class Plugin : BaseUnityPlugin
             return;
 
         TextMeshPro tmpText;
-        if (playerMapLabels.ContainsKey(identifier))
+        if (playerMapLabels.TryGetValue(identifier, out var label) && label != null)
         {
-            tmpText = playerMapLabels[identifier].GetComponent<TextMeshPro>();
+            tmpText = label.GetComponent<TextMeshPro>();
             tmpText.text = identifier;
             return;
         }
+        playerMapLabels.Remove(identifier);
 
         GameObject mapLabel = new();
         mapLabel.transform.SetParent(mapDot.transform, false);
