@@ -163,12 +163,35 @@ public class Plugin : BaseUnityPlugin
         var mapScreen = StartOfRound.Instance?.mapScreen;
         if (mapScreen == null) return;
 
+        var live = new GameObject[mapScreen.radarTargets.Count];
         for (int i = 0; i < mapScreen.radarTargets.Count; ++i)
+            live[i] = mapScreen.radarTargets[i]?.transform?.gameObject;
+
+        var newIdents = IdentTable.Assign(live);
+
+        foreach (var target in live)
         {
-            if (mapScreen.radarTargets[i]?.transform != null)
-            {
-                StartTracking(mapScreen.radarTargets[i].transform.gameObject);
-            }
+            if (target == null) continue;
+            if (!playerAssignments.TryGetValue(target, out var oldIdent))
+                continue;
+            if (!newIdents.TryGetValue(target, out var newIdent) || oldIdent == newIdent)
+                continue;
+            if (!playerMapLabels.TryGetValue(oldIdent, out var existingLabel) || existingLabel == null)
+                continue;
+            playerMapLabels.Remove(oldIdent);
+            var tmp = existingLabel.GetComponent<TextMeshPro>();
+            if (tmp != null) tmp.text = newIdent;
+            playerMapLabels[newIdent] = existingLabel;
+        }
+
+        playerAssignments.Clear();
+        foreach (var kv in newIdents)
+            playerAssignments[kv.Key] = kv.Value;
+
+        foreach (var target in live)
+        {
+            if (target != null)
+                StartTracking(target);
         }
     }
 
@@ -181,18 +204,21 @@ public class Plugin : BaseUnityPlugin
         GameObject mapDot = FindMapDot(target);
         if (mapDot == null) return;
 
-        string identifier;
-        TextMeshPro tmpText;
-
-        // If we're not yet tracking the player, give them the next available identifier
         if (!playerAssignments.ContainsKey(target))
         {
-            int nextAvailable = 0;
-            while (playerAssignments.ContainsValue(nextAvailable.ToString())) nextAvailable++;
-            playerAssignments.Add(target, nextAvailable.ToString());
+            var radarTargets = StartOfRound.Instance?.mapScreen?.radarTargets;
+            if (radarTargets == null) return;
+            var live = new GameObject[radarTargets.Count];
+            for (int i = 0; i < radarTargets.Count; ++i)
+                live[i] = radarTargets[i]?.transform?.gameObject;
+            foreach (var kv in IdentTable.Assign(live))
+                playerAssignments[kv.Key] = kv.Value;
         }
 
-        identifier = playerAssignments[target];
+        if (!playerAssignments.TryGetValue(target, out string identifier))
+            return;
+
+        TextMeshPro tmpText;
         if (playerMapLabels.ContainsKey(identifier))
         {
             tmpText = playerMapLabels[identifier].GetComponent<TextMeshPro>();
@@ -308,6 +334,7 @@ public class Plugin : BaseUnityPlugin
         orig(self, removeTransform);
 
         StopTracking(removeTransform.gameObject);
+        TrackAllRadarTargets();
     }
 
     private void PlayerControllerB_KillPlayerServerRpc(
