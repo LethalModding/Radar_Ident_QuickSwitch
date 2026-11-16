@@ -358,24 +358,23 @@ public class Plugin : BaseUnityPlugin
         if (result != self.terminalNodes.specialNodes[10]) return result;
 
         string str1 = RemovePunctuation(self.screenText.text.Substring(self.screenText.text.Length - self.textAdded));
-        string[] strArray = str1.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-        if (strArray.Length == 1 && int.TryParse(strArray[0], out int outputNum))
+        if (!IdentTable.TryQuickSwitchIndex(
+            configGeneralEnabled.Value,
+            str1,
+            StartOfRound.Instance.mapScreen.radarTargets.Count,
+            out int playerIndex))
         {
-            int playerIndex = outputNum;
-            if (IdentTable.IsValidIndex(playerIndex, StartOfRound.Instance.mapScreen.radarTargets.Count))
-            {
-                var controller = StartOfRound.Instance.mapScreen.radarTargets[playerIndex].transform.gameObject.GetComponent<PlayerControllerB>();
-                if (controller != null && !controller.isPlayerControlled && !controller.isPlayerDead && controller.redirectToEnemy == null)
-                {
-                    return null;
-                }
-                StartOfRound.Instance.mapScreen.SwitchRadarTargetAndSync(playerIndex);
-
-                return self.terminalNodes.specialNodes[20];
-            }
+            return result;
         }
 
-        return result;
+        var controller = StartOfRound.Instance.mapScreen.radarTargets[playerIndex].transform.gameObject.GetComponent<PlayerControllerB>();
+        if (controller != null && !controller.isPlayerControlled && !controller.isPlayerDead && controller.redirectToEnemy == null)
+        {
+            return null;
+        }
+        StartOfRound.Instance.mapScreen.SwitchRadarTargetAndSync(playerIndex);
+
+        return self.terminalNodes.specialNodes[20];
     }
     #endregion
 }
