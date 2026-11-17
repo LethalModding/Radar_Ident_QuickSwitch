@@ -15,3 +15,6 @@ updates:
       - samboy
     schedule:
       interval: weekly
+    # Pinned to the game's Unity version (Lethal Company ships 2022.3.9).
+    ignore:
+      - dependency-name: UnityEngine.Modules
