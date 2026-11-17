@@ -81,3 +81,11 @@ crashlytics-build.properties
 # Test project build output
 IdentTable.Tests/bin/
 IdentTable.Tests/obj/
+
+.claude/
+.cursor/
+.gemini/
+AGENTS.md
+CLAUDE.md
+HUMANS.md
+GEMINI.md
